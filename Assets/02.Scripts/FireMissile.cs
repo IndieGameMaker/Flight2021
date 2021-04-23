@@ -6,8 +6,10 @@ public class FireMissile : MonoBehaviour
 {
     public GameObject missile;
 
-    void Fire()
+    IEnumerator Fire()
     {
+        yield return new WaitForSeconds(Random.Range(0.0f, 3.0f));
+        
         Instantiate(missile,
                     transform.position,
                     Quaternion.LookRotation(transform.forward));
