@@ -9,10 +9,12 @@ public class FireMissile : MonoBehaviour
     IEnumerator Fire()
     {
         yield return new WaitForSeconds(Random.Range(0.0f, 3.0f));
-        
-        Instantiate(missile,
-                    transform.position,
-                    Quaternion.LookRotation(transform.forward));
+
+        GameObject obj =  Instantiate(missile,
+                                      transform.position,
+                                      Quaternion.LookRotation(transform.forward));
+
+        Destroy(obj, 10.0f);            
         Debug.Log("Fire !!!");
     }
 
