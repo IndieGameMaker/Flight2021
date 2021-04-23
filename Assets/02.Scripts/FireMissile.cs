@@ -11,6 +11,7 @@ public class FireMissile : MonoBehaviour
         Instantiate(missile,
                     transform.position,
                     Quaternion.LookRotation(transform.forward));
+        Debug.Log("Fire !!!");
     }
 
 }
