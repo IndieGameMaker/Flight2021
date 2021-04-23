@@ -16,7 +16,15 @@ public class UfoCtrl : MonoBehaviour
     void LateUpdate()
     {
         //벡터 계산 (비행기의좌표 - UFO좌표)
-        Vector3 dir = fighterTr.position - ufoTr.position;
+        Vector3 fighterVec = new Vector3(fighterTr.position.x,
+                                         ufoTr.position.y,
+                                         fighterTr.position.z);
+        /*
+        Vector3 fighterVec = fighterTr.position;
+        fighterVec.y = ufoTr.position.y;
+        */
+
+        Vector3 dir = fighterVec - ufoTr.position;
         //벡터의 각도를 계산(쿼터니언 Quaternion)
         Quaternion rot = Quaternion.LookRotation(dir);
 
@@ -24,4 +32,6 @@ public class UfoCtrl : MonoBehaviour
                                           rot,
                                           Time.deltaTime * 5.0f);
     }
+
+
 }
