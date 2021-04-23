@@ -19,19 +19,20 @@ public class UfoCtrl : MonoBehaviour
         Vector3 fighterVec = new Vector3(fighterTr.position.x,
                                          ufoTr.position.y,
                                          fighterTr.position.z);
+
+        ufoTr.LookAt(fighterVec);
+
         /*
         Vector3 fighterVec = fighterTr.position;
         fighterVec.y = ufoTr.position.y;
         */
 
-        Vector3 dir = fighterVec - ufoTr.position;
-        //벡터의 각도를 계산(쿼터니언 Quaternion)
-        Quaternion rot = Quaternion.LookRotation(dir);
+        // Vector3 dir = fighterVec - ufoTr.position;
+        // //벡터의 각도를 계산(쿼터니언 Quaternion)
+        // Quaternion rot = Quaternion.LookRotation(dir);
 
-        ufoTr.rotation = Quaternion.Slerp(ufoTr.rotation,
-                                          rot,
-                                          Time.deltaTime * 5.0f);
+        // ufoTr.rotation = Quaternion.Slerp(ufoTr.rotation,
+        //                                   rot,
+        //                                   Time.deltaTime * 5.0f);
     }
-
-
 }
